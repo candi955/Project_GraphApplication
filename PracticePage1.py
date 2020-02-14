@@ -47,7 +47,12 @@ print(startBlack + '\nDataset information when pulled from the DistanceDataSet.t
 # Adding more nodes and weights to the dataset variable G
 # reference: https://networkx.github.io/documentation/networkx-1.10/tutorial/tutorial.html
 G.add_weighted_edges_from([('Los Angeles', 'Nashville', 2003.8), ('Los Angeles', 'Phoenix', 373),
-                           ('Phoenix', 'Nashville', 1636.1), ('Phoenix', 'Toronto', 2213.9)])
+                           ('Phoenix', 'Nashville', 1636.1), ('Phoenix', 'Toronto', 2213.9),
+                           ('Pensacola', 'Los Angeles', 2069.3), ('Birmingham', 'Los Angeles', 2036.5),
+                           ('Nashville', 'Milwaukee', 328.9), ('Milwaukee', 'Pensacola', 1008.9),
+                           ('Phoenix', 'Birmingham', 1701.1), ('Los Angeles', 'Milwaukee', 2056.6),
+                           ('Birmingham', 'Nashville', 191.6), ('Los Angeles', 'Toronto', 2518.8),
+                           ('Pensacola', 'Toronto', 1203.8), ('Birmingham', 'Milwaukee', 758)])
 # Placing the updated dataset information as output
 print('\nDataset information after adding more node and distance sets:\n', nx.info(G))
 
@@ -62,6 +67,8 @@ print(startBlue + '\nNumber of edges:' + endColor, nx.number_of_edges(G))
 print(startBlue + '\nIs the graph directed?' + endColor, nx.is_directed(G))
 
 nx.draw(G, with_labels=True)
+plt.title('Distance Between Cities')
 plt.get_figlabels()
+plt.tight_layout(False)
 plt.show()
 
