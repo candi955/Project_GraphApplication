@@ -73,10 +73,10 @@ print(startBlue + '\nNumber of edges:' + endColor, nx.number_of_edges(G))
 print(startBlue + '\nIs the graph directed?' + endColor, nx.is_directed(G))
 
 
-nx.draw(G, with_labels=True, cmap=plt.get_cmap('viridis'), font_color='white')
+nx.draw(G, with_labels=True, cmap=plt.get_cmap('viridis'), font_color='blue')
 # reference for various layouts that can be chosen:
 # https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.layout.spring_layout.html
-edge_labels = nx.draw_networkx_edge_labels(G, pos=nx.spectral_layout(G), font_size=5)
+edge_labels = nx.draw_networkx_edge_labels(G, pos=nx.spectral_layout(G), font_size=7)
 plt.suptitle('Distance Between Cities in Miles')
 plt.get_figlabels()
 plt.tight_layout(True)
