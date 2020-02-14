@@ -1,4 +1,13 @@
+# This project was created for the master's course MS549, Data Structures and Testing, and
+# is called Project: Graph Application.  I have created a dataset of cities and distances (in miles) between them, and
+# then applied that data to a graph using the python Networkx library (references shown throughout the code on
+# all project pages).
 
+# On this page, I used the basic idea from the original graph on the SettingUpDistanceGraph_Original.py page,
+# added to it and transformed it slightly just for visual effects, and then experimented with various algorithms using
+# the python Networkx library (shortest path, Eulerian, Linear Algebra (Eigenvalues), Bellman Ford).
+# I also utilized the Networkx library, in the latter part of the code, to transform the original graph into a
+# Eulerian format.
 
 # Reference when starting the project: https://www.youtube.com/watch?v=1ErL1z_lKd8&t=219s
 # I created a txt file with nodes and edge data to pull from (DistanceDataSet.txt), but the nodes and edges can
@@ -7,10 +16,6 @@
 
 import networkx as nx
 import matplotlib.pyplot as plt
-import numpy as np
-from collections import defaultdict
-from scipy.cluster import hierarchy
-from scipy.spatial import distance
 
 # Using the color class in python, in assigned variable form, to make the headings bold, underline, and various colors
 # (colorama module), reference: https://pypi.org/project/colorama/,

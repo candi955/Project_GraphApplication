@@ -1,4 +1,10 @@
+# This project was created for the master's course MS549, Data Structures and Testing, and
+# is called Project: Graph Application.  I have created a dataset of cities and distances (in miles) between them, and
+# then applied that data to a graph using the python Networkx library (references shown throughout the code on
+# all project pages).
 
+# On this page, I created the basic code to pull the dataset information, add to it within the code, and then place
+# it into the graph, in the format of: node (vector), node (vector), edge weights (distance)
 
 # Reference when starting the project: https://www.youtube.com/watch?v=1ErL1z_lKd8&t=219s
 # I created a txt file with nodes and edge data to pull from (DistanceDataSet.txt), but the nodes and edges can
@@ -7,7 +13,6 @@
 
 import networkx as nx
 import matplotlib.pyplot as plt
-import numpy as np
 
 # Using the color class in python, in assigned variable form, to make the headings bold, underline, and various colors
 # (colorama module), reference: https://pypi.org/project/colorama/,
