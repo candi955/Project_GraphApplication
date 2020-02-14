@@ -92,9 +92,14 @@ nx.draw_networkx_edge_labels(G, pos=nx.spectral_layout(G), font_size=5)
 plt.axis('off')
 plt.savefig("weighted_graph.png") # save as png
 plt.tight_layout(True)
+plt.suptitle('Original Distance Model (miles)')
 plt.show() # display
 
-# reference for a dijkstra function:
-# https://www.datacamp.com/community/tutorials/networkx-python-graph-tutorial
 
+print(startDarkCyan + '\n----------------------------------------- Path Experiments with Data' +
+      '-----------------------------------------' + endColor, '\n')
+
+print(startBlue + '\nShortest path from Pensacola to Phoenix:\n'+ endColor, nx.shortest_path(G, 'Pensacola', 'Phoenix'))
+print(startBlue + '\nDijkstra path from Pensacola to Phoenix:\n'+ endColor, nx.dijkstra_path(G, 'Pensacola', 'Phoenix'))
+print(startBlue + '\nHas Euleurian path:\n'+ endColor, nx.has_eulerian_path(G))
 
