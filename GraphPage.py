@@ -3,6 +3,7 @@
 # https://networkx.github.io/documentation/networkx-1.10/examples/algorithms/blockmodel.html
 # https://link.springer.com/article/10.1023%2FA%3A1015457400897
 
+
 #!/usr/bin/env python
 # encoding: utf-8
 """
