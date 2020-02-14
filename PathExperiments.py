@@ -96,10 +96,82 @@ plt.suptitle('Original Distance Model (miles)')
 plt.show() # display
 
 
-print(startDarkCyan + '\n----------------------------------------- Path Experiments with Data' +
-      '-----------------------------------------' + endColor, '\n')
+
+
+
+print(startPurple + '\n----------------------------------------- Algorithmic Path Experiments with Data, Original '
+                      'Graph -----------------------------------------' + endColor, '\n')
 
 print(startBlue + '\nShortest path from Pensacola to Phoenix:\n'+ endColor, nx.shortest_path(G, 'Pensacola', 'Phoenix'))
 print(startBlue + '\nDijkstra path from Pensacola to Phoenix:\n'+ endColor, nx.dijkstra_path(G, 'Pensacola', 'Phoenix'))
-print(startBlue + '\nHas Euleurian path:\n'+ endColor, nx.has_eulerian_path(G))
+# Eulerian:
+# reference: https://networkx.github.io/documentation/stable/reference/algorithms/euler.html
+# For Use-Case scenerio, see Eulerian Graph at bottom of program
+print(startBlue + '\nHas Eulerian path:\n'+ endColor, nx.has_eulerian_path(G))
+print(startBlue + '\nIs semi-Eulerian:\n'+ endColor, nx.is_semieulerian(G))
+# Shortest paths (Bellman Ford):
+# reference: https://networkx.github.io/documentation/stable/reference/algorithms/shortest_paths.html
+# defined: The Bellman-Ford algorithm is a graph search algorithm that finds the shortest path between a given source
+# vertex and all other vertices in the graph. This algorithm can be used on both weighted and unweighted graphs.
+# reference: https://brilliant.org/wiki/bellman-ford-algorithm/
+print(startBlue + '\nBellman Ford path from Los Angeles:\n'+ endColor,
+      nx.bellman_ford_predecessor_and_distance(G, 'Los Angeles'))
+# Linear Algebra (Eigenvalues):
+# reference: https://networkx.github.io/documentation/stable/reference/linalg.html
+# defined: Using scaler multiplication (matrix multiplication = scaler multiplication) to create a new figure,
+# utilizing Eigenvalues and Eigenvectors
+# reference: https://www.youtube.com/watch?v=vs2sRvSzA3o
+# Real world use-case: To scale a model to a real-world dataset or graph
+# Reference: http://barabasi.com/f/94.pdf
+print(startBlue + '\nThe Modularity Spectrum that returns eigenvalues of the modularity matrix of G:\n' +
+      endColor, nx.modularity_spectrum(G))
+
+
+
+
+print(startCyan + '\n----------------------------------------- Transforming Graph into Eulerian Graph' +
+      '-----------------------------------------' + endColor, '\n')
+# reference: https://networkx.github.io/documentation/stable/reference/algorithms/euler.html
+# Use-Case example: The purpose of the proposed new roads is to make the town mailman-friendly. In graph theory terms,
+# we want to change the graph so it contains an Euler circuit. This is also referred to as Eulerizing a graph. The
+# most mailman-friendly graph is the one with an Euler circuit since it takes the mailman back to the starting point.
+# This means that the mailman can leave his car at one intersection, walk the route hitting all the streets just once,
+# and end up where he began. There is no backtracking or walking of streets twice. This saves him time.
+# reference: https://study.com/academy/lesson/eulerizing-graphs-in-math.html
+
+# reference for below weighted graph code:
+# https://networkx.github.io/documentation/networkx-1.10/examples/drawing/weighted_graph.html
+elarge = [(u, v) for (u, v, d) in G.edges(data=True) if d['weight'] >0.5]
+esmall = [(u, v) for (u, v, d) in G.edges(data=True) if d['weight'] <=0.5]
+
+pos=nx.spring_layout(G) # positions for all nodes
+
+# nodes
+nx.draw_networkx_nodes(G, pos, node_size=700)
+
+# edges
+nx.draw_networkx_edges(G, pos, edgelist=elarge, width=2)
+nx.draw_networkx_edges(G, pos, edgelist=esmall, width=2, alpha=0.5, edge_color='b', style='dashed')
+
+# labels
+nx.draw_networkx_labels(G, pos, font_size=11, font_family='sans-serif', font_color='blue')
+nx.draw_networkx_edge_labels(G, pos=nx.spectral_layout(G), font_size=5)
+
+nx.eulerize(G)
+
+plt.axis('off')
+plt.savefig("weighted_graph.png") # save as png
+plt.tight_layout(True)
+plt.suptitle('Eulerized Graph, Distance Model (miles)')
+plt.show() # display
+
+print(startGreen + '-------------                           Algorithmic Path Experiments post-Eulerian Graph' +
+      '                      -------------' + endColor, '\n')
+
+print(startBlue + '\nShortest path from Pensacola to Phoenix, Eulerized Graph:\n'+ endColor,
+      nx.shortest_path(G, 'Pensacola', 'Phoenix'))
+print(startBlue + '\nDijkstra path from Pensacola to Phoenix, Eulerized Graph:\n'+ endColor,
+      nx.dijkstra_path(G, 'Pensacola', 'Phoenix'))
+
+
 
