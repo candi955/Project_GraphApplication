@@ -52,13 +52,17 @@ print(startBlack + '\nDataset information when pulled from the DistanceDataSet.t
 
 # Adding more nodes and weights to the dataset variable G
 # reference: https://networkx.github.io/documentation/networkx-1.10/tutorial/tutorial.html
-G.add_weighted_edges_from([('Los Angeles', 'Nashville', 2003.8), ('Los Angeles', 'Phoenix', 373),
-                           ('Phoenix', 'Nashville', 1636.1), ('Phoenix', 'Toronto', 2213.9),
-                           ('Pensacola', 'Los Angeles', 2069.3), ('Birmingham', 'Los Angeles', 2036.5),
-                           ('Nashville', 'Milwaukee', 328.9), ('Milwaukee', 'Pensacola', 1008.9),
+G.add_weighted_edges_from([('Los Angeles', 'Denver', 1016.1), ('Los Angeles', 'Phoenix', 373),
+                           ('Phoenix', 'Nashville', 1636.1), ('Phoenix', 'New York', 2406.8),
+                           ('Louisville', 'Albuquerque', 1301.4), ('Birmingham', 'Boston', 721.4),
+                           ('Nashville', 'Louisville', 175.6), ('Milwaukee', 'Houston', 1172.2),
                            ('Phoenix', 'Birmingham', 1701.1), ('Los Angeles', 'Milwaukee', 2056.6),
                            ('Birmingham', 'Nashville', 191.6), ('Los Angeles', 'Toronto', 2518.8),
-                           ('Pensacola', 'Toronto', 1203.8), ('Birmingham', 'Milwaukee', 758)])
+                           ('Pensacola', 'Toronto', 1203.8), ('New York', 'Las Vegas', 2252.5),
+                           ('Denver', 'Boston', 1969.8), ('New York', 'Boston', 215.4),
+                           ('Houston', 'Louisville', 950.8), ('Albuquerque', 'Topeka', 747.8),
+                           ('Albuquerque', 'El Paso', 266.2), ('Las Vegas', 'El Paso', 730.7),
+                           ('Tulsa', 'El Paso', 417.6), ('Las Vegas', 'Sioux Falls', 1370.6)])
 # Placing the updated dataset information as output
 print('\nDataset information after adding more node and distance sets:\n', nx.info(G))
 
@@ -79,6 +83,8 @@ nx.draw(G, with_labels=True, cmap=plt.get_cmap('viridis'), font_color='blue')
 edge_labels = nx.draw_networkx_edge_labels(G, pos=nx.spectral_layout(G), font_size=7)
 plt.suptitle('Distance Between Cities in Miles')
 plt.get_figlabels()
-plt.tight_layout(True)
+plt.tight_layout(False)
+plt.fill()
+plt.figure(figsize=(300,300))
 plt.show()
 
