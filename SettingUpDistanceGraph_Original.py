@@ -57,7 +57,7 @@ G.add_weighted_edges_from([('Los Angeles', 'Denver', 1016.1), ('Los Angeles', 'P
                            ('Louisville', 'Albuquerque', 1301.4), ('Birmingham', 'Boston', 721.4),
                            ('Nashville', 'Louisville', 175.6), ('Milwaukee', 'Houston', 1172.2),
                            ('Phoenix', 'Birmingham', 1701.1), ('Los Angeles', 'Milwaukee', 2056.6),
-                           ('Birmingham', 'Nashville', 191.6), ('Los Angeles', 'Toronto', 2518.8),
+                           ('Birmingham', 'Nashville', 191.6), ('Topeka', 'Tulsa', 219.4),
                            ('Pensacola', 'Toronto', 1203.8), ('New York', 'Las Vegas', 2252.5),
                            ('Denver', 'Boston', 1969.8), ('New York', 'Boston', 215.4),
                            ('Houston', 'Louisville', 950.8), ('Albuquerque', 'Topeka', 747.8),
