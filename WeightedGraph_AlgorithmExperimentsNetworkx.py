@@ -55,13 +55,19 @@ print(startBlack + '\nDataset information when pulled from the DistanceDataSet.t
 
 # Adding more nodes and weights to the dataset variable G
 # reference: https://networkx.github.io/documentation/networkx-1.10/tutorial/tutorial.html
-G.add_weighted_edges_from([('Los Angeles', 'Nashville', 2003.8), ('Los Angeles', 'Phoenix', 373),
-                           ('Phoenix', 'Nashville', 1636.1), ('Phoenix', 'Toronto', 2213.9),
-                           ('Pensacola', 'Los Angeles', 2069.3), ('Birmingham', 'Los Angeles', 2036.5),
-                           ('Nashville', 'Milwaukee', 328.9), ('Milwaukee', 'Pensacola', 1008.9),
+G.add_weighted_edges_from([('Los Angeles', 'Denver', 1016.1), ('Los Angeles', 'Phoenix', 373),
+                           ('Phoenix', 'Nashville', 1636.1), ('Phoenix', 'New York', 2406.8),
+                           ('Louisville', 'Albuquerque', 1301.4), ('Birmingham', 'Boston', 721.4),
+                           ('Nashville', 'Louisville', 175.6), ('Milwaukee', 'Houston', 1172.2),
                            ('Phoenix', 'Birmingham', 1701.1), ('Los Angeles', 'Milwaukee', 2056.6),
-                           ('Birmingham', 'Nashville', 191.6), ('Los Angeles', 'Toronto', 2518.8),
-                           ('Pensacola', 'Toronto', 1203.8), ('Birmingham', 'Milwaukee', 758)])
+                           ('Birmingham', 'Nashville', 191.6), ('Topeka', 'Tulsa', 219.4),
+                           ('Pensacola', 'Toronto', 1203.8), ('New York', 'Las Vegas', 2252.5),
+                           ('Denver', 'Boston', 1969.8), ('New York', 'Boston', 215.4),
+                           ('Houston', 'Louisville', 950.8), ('Albuquerque', 'Topeka', 747.8),
+                           ('Albuquerque', 'El Paso', 266.2), ('Las Vegas', 'El Paso', 730.7),
+                           ('Tulsa', 'El Paso', 417.6), ('Las Vegas', 'Sioux Falls', 1370.6),
+                           ('Lafayette', 'Houston', 216.9), ('Louisville', 'Billings', 1509.8),
+                           ('New York', 'Pittsburgh', 396.6)])
 # Placing the updated dataset information as output
 print('\nDataset information after adding more node and distance sets:\n', nx.info(G))
 
@@ -128,6 +134,8 @@ print(startBlue + '\nBellman Ford path from Los Angeles:\n'+ endColor,
 # reference: https://www.youtube.com/watch?v=vs2sRvSzA3o
 # Real world use-case: To scale a model to a real-world dataset or graph
 # Reference: http://barabasi.com/f/94.pdf
+# Appears that utilizing the modularity spectrum, groups can be assigned into clusters/networks
+# reference: https://en.wikipedia.org/wiki/Modularity_(networks)
 print(startBlue + '\nThe Modularity Spectrum that returns eigenvalues of the modularity matrix of G:\n' +
       endColor, nx.modularity_spectrum(G))
 

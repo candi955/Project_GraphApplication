@@ -11,6 +11,10 @@
 # be created within the code also
 # (reference: https://networkx.github.io/documentation/networkx-1.10/tutorial/tutorial.html)
 
+# Side note: "Per the Networkx documentation: NetworkX provides basic functionality for visualizing graphs, but its
+# main goal is to enable graph analysis rather than perform graph visualization."
+# reference: https://networkx.github.io/documentation/networkx-1.10/reference/drawing.html
+
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -78,15 +82,14 @@ print(startBlue + '\nNumber of edges:' + endColor, nx.number_of_edges(G))
 # reference: https://stackoverflow.com/questions/23956467/what-is-the-difference-between-a-directed-and-undirected-graph
 print(startBlue + '\nIs the graph directed?' + endColor, nx.is_directed(G))
 
-
 nx.draw(G, with_labels=True, cmap=plt.get_cmap('viridis'), font_color='blue')
 # reference for various layouts that can be chosen:
 # https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.layout.spring_layout.html
-edge_labels = nx.draw_networkx_edge_labels(G, pos=nx.spectral_layout(G), font_size=7)
+# Added a random_state=2 to nx.spring_layout() so that variable begins at same position, rather than random
+# position, on every run (so that graph does not change shape every run)
+
+edge_labels = nx.draw_networkx_edge_labels(G, pos=nx.spring_layout(G), font_size=3)
 plt.suptitle('Distance Between Cities in Miles')
-plt.get_figlabels()
-plt.tight_layout(False)
 plt.fill()
-plt.figure(figsize=(300,300))
 plt.show()
 
