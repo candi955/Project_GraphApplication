@@ -112,17 +112,20 @@ plt.show() # display
 
 print(startPurple + '\n----------------------------------------- Algorithmic Path Experiments with Data, Original '
                       'Graph -----------------------------------------' + endColor, '\n')
-# Shortest Paths:
+# Shortest Path and Dijkstra Path:
+# Shortest path speaks for itself (shortest path between two chosen nodes/vertices), however Dijkstra Path is defined
+# on the shortest paths Networkx documentation as
+# "https://networkx.github.io/documentation/networkx-1.10/reference/algorithms.shortest_paths.html".
 # reference: https://networkx.github.io/documentation/networkx-1.10/reference/algorithms.shortest_paths.html
 print(startBlue + '\nShortest path from Pensacola to Phoenix:\n'+ endColor, nx.shortest_path(G, 'Pensacola', 'Phoenix'))
 print(startBlue + '\nDijkstra path from Pensacola to Phoenix:\n'+ endColor, nx.dijkstra_path(G, 'Pensacola', 'Phoenix'))
 # Eulerian:
 # reference: https://networkx.github.io/documentation/stable/reference/algorithms/euler.html
-# Use-Case example: The purpose of the proposed new roads is to make the town mailman-friendly. In graph theory terms,
+# Use-Case example: "The purpose of the proposed new roads is to make the town mailman-friendly. In graph theory terms,
 # we want to change the graph so it contains an Euler circuit. This is also referred to as Eulerizing a graph. The
 # most mailman-friendly graph is the one with an Euler circuit since it takes the mailman back to the starting point.
 # This means that the mailman can leave his car at one intersection, walk the route hitting all the streets just once,
-# and end up where he began. There is no backtracking or walking of streets twice. This saves him time.
+# and end up where he began. There is no backtracking or walking of streets twice. This saves him time."
 # reference: https://study.com/academy/lesson/eulerizing-graphs-in-math.html
 print(startBlue + '\nHas Eulerian path:\n'+ endColor, nx.has_eulerian_path(G))
 print(startBlue + '\nIs semi-Eulerian:\n'+ endColor, nx.is_semieulerian(G))
