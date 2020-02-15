@@ -62,7 +62,9 @@ G.add_weighted_edges_from([('Los Angeles', 'Denver', 1016.1), ('Los Angeles', 'P
                            ('Denver', 'Boston', 1969.8), ('New York', 'Boston', 215.4),
                            ('Houston', 'Louisville', 950.8), ('Albuquerque', 'Topeka', 747.8),
                            ('Albuquerque', 'El Paso', 266.2), ('Las Vegas', 'El Paso', 730.7),
-                           ('Tulsa', 'El Paso', 417.6), ('Las Vegas', 'Sioux Falls', 1370.6)])
+                           ('Tulsa', 'El Paso', 417.6), ('Las Vegas', 'Sioux Falls', 1370.6),
+                           ('Lafayette', 'Houston', 216.9), ('Louisville', 'Billings', 1509.8),
+                           ('New York', 'Pittsburgh', 396.6)])
 # Placing the updated dataset information as output
 print('\nDataset information after adding more node and distance sets:\n', nx.info(G))
 
